@@ -21,7 +21,15 @@
         <activity
             android:name=".UserLogin"
             android:label="@string/title_activity_user_login"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TechnicianDetails"
+            android:label="@string/title_activity_technician_details"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SubCategoryPage"
+            android:label="@string/title_activity_sub_category_page"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
