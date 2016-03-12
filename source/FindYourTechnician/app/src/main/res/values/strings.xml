@@ -3,6 +3,10 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_user_login">UserLogin</string>
 <<<<<<< HEAD
+<<<<<<< HEAD
+    <string name="title_activity_technician_profile_registration">TechnicianProfileRegistration
+    </string>
+=======
     <string-array name="technicians">
         <item>Carpenter</item>
         <item>Electrician</item>
@@ -53,6 +57,7 @@
         <item>Other</item>
     </string-array>
 
+>>>>>>> refs/remotes/origin/master
 =======
     <string name="title_activity_technician_experience_registration">
         technician_experience_registration
@@ -94,6 +99,10 @@
         <item>$50</item>
         <item>$44</item>
     </string-array>
+<<<<<<< HEAD
+>>>>>>> master
+=======
+>>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/master
 </resources>
