@@ -18,20 +18,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Please Sign in to continue"
         android:id="@+id/Login"
-<<<<<<< HEAD
         android:textSize="30dp"
         android:textIsSelectable="false"
         android:layout_marginTop="68dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
        />
-=======
-        android:textSize="30sp"
-        android:textIsSelectable="false"
-        android:layout_marginTop="68dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
->>>>>>> refs/remotes/origin/master
+
 
 
     <Button
