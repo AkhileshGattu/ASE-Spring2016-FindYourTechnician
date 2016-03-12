@@ -15,16 +15,8 @@ public class UserRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_registration);
-<<<<<<< HEAD
-=======
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-<<<<<<< HEAD
->>>>>>> refs/remotes/origin/master
-
-=======
->>>>>>> Akhilesh
     }
 
     @Override
