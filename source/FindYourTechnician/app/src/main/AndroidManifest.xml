@@ -21,6 +21,14 @@
         <activity
             android:name=".UserLogin"
             android:label="@string/title_activity_user_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".technicians_list"
+            android:label="@string/title_activity_technicians_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".technician_profile_registration2"
+            android:label="@string/title_activity_technician_profile_registration2"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
