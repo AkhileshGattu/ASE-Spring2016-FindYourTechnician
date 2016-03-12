@@ -22,7 +22,9 @@
         android:textIsSelectable="false"
         android:layout_marginTop="68dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+       />
+
 
 
     <Button
