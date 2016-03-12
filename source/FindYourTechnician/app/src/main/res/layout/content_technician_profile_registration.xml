@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Technician Registration"
-        android:id="@+id/LoginContent_RegistrationTextView"
+        android:id="@+id/Technician_Registration"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="First name"
-        android:id="@+id/LoginContent_FirstNameTextView"
-        android:layout_below="@+id/LoginContent_RegistrationTextView"
+        android:id="@+id/Technician_Profile_Registration_FirstName"
+        android:layout_below="@+id/Technician_Registration"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="53dp" />
@@ -37,9 +37,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Last Name"
-        android:id="@+id/LoginContent_LastNameTextView"
+        android:id="@+id/Technician_Profile_Registration_LastName"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/LoginContent_FirstNameTextView"
+        android:layout_below="@+id/Technician_Profile_Registration_FirstName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -48,8 +48,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Email id"
-        android:id="@+id/LoginContent_EmailidTextView"
-        android:layout_below="@+id/LoginContent_LastNameTextView"
+        android:id="@+id/Technician_Profile_Registration_EmailId"
+        android:layout_below="@+id/Technician_Profile_Registration_LastName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp" />
@@ -59,8 +59,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Contact"
-        android:id="@+id/LoginContent_ContactTextView"
-        android:layout_below="@+id/LoginContent_EmailidTextView"
+        android:id="@+id/Technician_Profile_Registration_Contact"
+        android:layout_below="@+id/Technician_Profile_Registration_EmailId"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp" />
@@ -70,8 +70,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Username"
-        android:id="@+id/LoginContent_UserNameTextView"
-        android:layout_below="@+id/LoginContent_ContactTextView"
+        android:id="@+id/Technician_Profile_Registration_UserName"
+        android:layout_below="@+id/Technician_Profile_Registration_Contact"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp" />
@@ -81,8 +81,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Password"
-        android:id="@+id/LoginContent_PasswordTextView"
-        android:layout_below="@+id/LoginContent_UserNameTextView"
+        android:id="@+id/Technician_Profile_Registration_PassWord"
+        android:layout_below="@+id/Technician_Profile_Registration_UserName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp" />
@@ -92,8 +92,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Confirm Password"
-        android:id="@+id/LoginContent_ConfirmPasswordTextView"
-        android:layout_below="@+id/LoginContent_PasswordTextView"
+        android:id="@+id/Technician_Profile_Registration_ConfirmPassword"
+        android:layout_below="@+id/Technician_Profile_Registration_PassWord"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp" />
@@ -103,10 +103,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/LoginContent_FirstNameTextField"
-        android:layout_below="@+id/LoginContent_RegistrationTextView"
-        android:layout_toRightOf="@+id/LoginContent_ConfirmPasswordTextView"
-        android:layout_toEndOf="@+id/LoginContent_ConfirmPasswordTextView"
+        android:id="@+id/Technician_Profile_Registration_FirstName_TextField"
+        android:layout_below="@+id/Technician_Registration"
+        android:layout_toRightOf="@+id/Technician_Profile_Registration_ConfirmPassword"
+        android:layout_toEndOf="@+id/Technician_Profile_Registration_ConfirmPassword"
         android:layout_marginTop="41dp" />
 
     <EditText
@@ -114,74 +114,74 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/LoginContent_LastNameTextField"
-        android:layout_below="@+id/LoginContent_FirstNameTextView"
-        android:layout_alignLeft="@+id/LoginContent_FirstNameTextField"
-        android:layout_alignStart="@+id/LoginContent_FirstNameTextField" />
+        android:id="@+id/Technician_Profile_Registration_LastName_TextField"
+        android:layout_below="@+id/Technician_Profile_Registration_FirstName"
+        android:layout_alignLeft="@+id/Technician_Profile_Registration_FirstName_TextField"
+        android:layout_alignStart="@+id/Technician_Profile_Registration_FirstName_TextField" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/LoginContent_EmailidTextField"
-        android:layout_below="@+id/LoginContent_LastNameTextView"
-        android:layout_alignLeft="@+id/LoginContent_LastNameTextField"
-        android:layout_alignStart="@+id/LoginContent_LastNameTextField" />
+        android:id="@+id/Technician_Profile_Registration_EmailId_TextField"
+        android:layout_below="@+id/Technician_Profile_Registration_LastName"
+        android:layout_alignLeft="@+id/Technician_Profile_Registration_LastName_TextField"
+        android:layout_alignStart="@+id/Technician_Profile_Registration_LastName_TextField" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/LoginContent_ContactTextField"
-        android:layout_below="@+id/LoginContent_EmailidTextField"
-        android:layout_alignRight="@+id/LoginContent_EmailidTextField"
-        android:layout_alignEnd="@+id/LoginContent_EmailidTextField"
-        android:layout_alignLeft="@+id/LoginContent_EmailidTextField"
-        android:layout_alignStart="@+id/LoginContent_EmailidTextField" />
+        android:id="@+id/Technician_Profile_Registration_Contact_TextField"
+        android:layout_below="@+id/Technician_Profile_Registration_EmailId_TextField"
+        android:layout_alignRight="@+id/Technician_Profile_Registration_EmailId_TextField"
+        android:layout_alignEnd="@+id/Technician_Profile_Registration_EmailId_TextField"
+        android:layout_alignLeft="@+id/Technician_Profile_Registration_EmailId_TextField"
+        android:layout_alignStart="@+id/Technician_Profile_Registration_EmailId_TextField" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/LoginContent_PasswordTextField"
-        android:layout_below="@+id/LoginContent_UserNameTextView"
-        android:layout_alignLeft="@+id/LoginContent_ContactTextField"
-        android:layout_alignStart="@+id/LoginContent_ContactTextField" />
+        android:id="@+id/Technician_Profile_Registration_PassWord_TextField"
+        android:layout_below="@+id/Technician_Profile_Registration_UserName"
+        android:layout_alignLeft="@+id/Technician_Profile_Registration_Contact_TextField"
+        android:layout_alignStart="@+id/Technician_Profile_Registration_Contact_TextField" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/LoginContent_UserNameTextField"
-        android:layout_below="@+id/LoginContent_ContactTextView"
-        android:layout_alignLeft="@+id/LoginContent_ContactTextField"
-        android:layout_alignStart="@+id/LoginContent_ContactTextField" />
+        android:id="@+id/Technician_Profile_Registration_UserName_TextField"
+        android:layout_below="@+id/Technician_Profile_Registration_Contact"
+        android:layout_alignLeft="@+id/Technician_Profile_Registration_Contact_TextField"
+        android:layout_alignStart="@+id/Technician_Profile_Registration_Contact_TextField" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/LoginContent_ConfirmPasswordTextField"
-        android:layout_below="@+id/LoginContent_PasswordTextField"
-        android:layout_alignRight="@+id/LoginContent_PasswordTextField"
-        android:layout_alignEnd="@+id/LoginContent_PasswordTextField"
-        android:layout_toRightOf="@+id/LoginContent_ConfirmPasswordTextView"
-        android:layout_toEndOf="@+id/LoginContent_ConfirmPasswordTextView" />
+        android:id="@+id/Technician_Profile_Registration_ConfirmPassword_TextField"
+        android:layout_below="@+id/Technician_Profile_Registration_PassWord_TextField"
+        android:layout_alignRight="@+id/Technician_Profile_Registration_PassWord_TextField"
+        android:layout_alignEnd="@+id/Technician_Profile_Registration_PassWord_TextField"
+        android:layout_toRightOf="@+id/Technician_Profile_Registration_ConfirmPassword"
+        android:layout_toEndOf="@+id/Technician_Profile_Registration_ConfirmPassword" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="NEXT"
-        android:id="@+id/LoginContent_RegisterButton"
+        android:id="@+id/Technician_Profile_Registration_NextButton"
         android:layout_marginTop="43dp"
-        android:layout_below="@+id/LoginContent_ConfirmPasswordTextView"
-        android:layout_toRightOf="@+id/LoginContent_ConfirmPasswordTextView"
-        android:layout_alignRight="@+id/LoginContent_RegistrationTextView"
-        android:layout_alignEnd="@+id/LoginContent_RegistrationTextView" />
+        android:layout_below="@+id/Technician_Profile_Registration_ConfirmPassword"
+        android:layout_toRightOf="@+id/Technician_Profile_Registration_ConfirmPassword"
+        android:layout_alignRight="@+id/Technician_Registration"
+        android:layout_alignEnd="@+id/Technician_Registration" />
 
 </RelativeLayout>
