@@ -3,6 +3,20 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_user_login">UserLogin</string>
 <<<<<<< HEAD
+    <string-array name="technicians">
+        <item>Carpenter</item>
+        <item>Electrician</item>
+        <item>Painter</item>
+        <item>Plumber</item>
+    </string-array>
+    <string-array name="technicianDescriptions">
+        <item>This is Carpenter</item>
+        <item>This is Electrician</item>
+        <item>This is Painter</item>
+        <item>This is Plumber</item>
+    </string-array>
+=======
+<<<<<<< HEAD
     <string name="title_activity_technician_details">TechnicianDetails</string>
     <string name="title_activity_sub_category_page">SubCategoryPage</string>
     <string-array name="Carpenter_SubCategory">
@@ -80,5 +94,6 @@
         <item>$50</item>
         <item>$44</item>
     </string-array>
+>>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/master
 </resources>

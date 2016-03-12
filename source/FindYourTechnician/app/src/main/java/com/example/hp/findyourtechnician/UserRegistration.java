@@ -20,8 +20,11 @@ public class UserRegistration extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+<<<<<<< HEAD
+=======
 >>>>>>> refs/remotes/origin/master
 
+>>>>>>> refs/remotes/origin/master
     }
 
     @Override
