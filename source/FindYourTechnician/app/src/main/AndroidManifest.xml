@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hp.findyourtechnician">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+<<<<<<< HEAD
             android:name=".TechnicianProfileRegistration"
+=======
+            android:name=".Home"
+>>>>>>> refs/remotes/origin/master
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -22,10 +34,23 @@
             android:name=".UserLogin"
             android:label="@string/title_activity_user_login"
             android:theme="@style/AppTheme.NoActionBar" />
+<<<<<<< HEAD
+        <activity android:name=".UserRegistration"></activity>
+=======
         <activity
+<<<<<<< HEAD
 <<<<<<< HEAD
             android:name=".UserRegistration"
             android:label="@string/title_activity_technician_profile_registration"
+=======
+            android:name=".TechnicianDetails"
+            android:label="@string/title_activity_technician_details"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SubCategoryPage"
+            android:label="@string/title_activity_sub_category_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+>>>>>>> refs/remotes/origin/master
 =======
             android:name=".technicians_list"
             android:label="@string/title_activity_technicians_list"
@@ -35,6 +60,8 @@
             android:label="@string/title_activity_technician_profile_registration2"
 >>>>>>> master
             android:theme="@style/AppTheme.NoActionBar"></activity>
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/master
     </application>
 
 </manifest>

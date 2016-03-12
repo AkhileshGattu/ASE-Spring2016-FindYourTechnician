@@ -3,8 +3,61 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_user_login">UserLogin</string>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <string name="title_activity_technician_profile_registration">TechnicianProfileRegistration
     </string>
+=======
+    <string-array name="technicians">
+        <item>Carpenter</item>
+        <item>Electrician</item>
+        <item>Painter</item>
+        <item>Plumber</item>
+    </string-array>
+    <string-array name="technicianDescriptions">
+        <item>This is Carpenter</item>
+        <item>This is Electrician</item>
+        <item>This is Painter</item>
+        <item>This is Plumber</item>
+    </string-array>
+=======
+<<<<<<< HEAD
+    <string name="title_activity_technician_details">TechnicianDetails</string>
+    <string name="title_activity_sub_category_page">SubCategoryPage</string>
+    <string-array name="Carpenter_SubCategory">
+        <item>Door Repair</item>
+        <item>Closet Repair</item>
+        <item>Wood Work</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="Electrician_SubCategory">
+        <item>Fan Repair/Fixing</item>
+        <item>TV Repair</item>
+        <item>Refrigerator Repair</item>
+        <item>Computer/Laptop Repair</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="Mechanic_SubCategory">
+        <item>Car Engine Repair</item>
+        <item>Car Accessories Repair</item>
+        <item>Bike Engine Repair</item>
+        <item>Bike Accessories Repair</item>
+        <item>Tyre Repair/Puncture</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="Painter_SubCategory">
+        <item>Window Painting</item>
+        <item>Wall Painting</item>
+        <item>Texture Painting</item>
+        <item>Door Painting</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="Plumber_SubCategory">
+        <item>Tap Repair</item>
+        <item>Sink Repair</item>
+        <item>Other</item>
+    </string-array>
+
+>>>>>>> refs/remotes/origin/master
 =======
     <string name="title_activity_technician_experience_registration">
         technician_experience_registration
@@ -46,5 +99,10 @@
         <item>$50</item>
         <item>$44</item>
     </string-array>
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/master
 </resources>
