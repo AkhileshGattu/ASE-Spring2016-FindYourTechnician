@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.hp.findyourtechnician.UserLogin">
+    tools:context="com.example.hp.findyourtechnician.technician_profile_registration2">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -14,6 +14,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_user_login" />
+    <include layout="@layout/content_technician_profile_registration2" />
 
 </android.support.design.widget.CoordinatorLayout>
