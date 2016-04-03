@@ -19,11 +19,12 @@
         android:id="@+id/linearLayout"
         android:clickable="false">
 
-        <SearchView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:id="@+id/Location_Search"
-            android:gravity="right" />
+            android:layout_weight="1"
+            android:text="Enter Search Location" />
     </LinearLayout>
 
     <LinearLayout
@@ -33,7 +34,8 @@
         android:layout_below="@+id/linearLayout"
         android:layout_alignRight="@+id/linearLayout"
         android:layout_alignEnd="@+id/linearLayout"
-        android:id="@+id/linearLayout2">
+        android:id="@+id/linearLayout2"
+        android:onClick="Category">
 
         <ListView
             android:layout_width="wrap_content"
@@ -57,6 +59,17 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:onClick="User_Login" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Are you a Technician"
+            android:id="@+id/HomeContent_technicianTextView"
+            android:textColor="#1728e1"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="TechnicianRegistration" />
     </RelativeLayout>
 
 </RelativeLayout>

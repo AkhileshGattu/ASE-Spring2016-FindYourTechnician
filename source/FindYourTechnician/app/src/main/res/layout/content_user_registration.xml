@@ -180,6 +180,7 @@
         android:id="@+id/LoginContent_RegisterButton"
         android:layout_marginTop="44dp"
         android:layout_below="@+id/LoginContent_ConfirmPasswordTextField"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="Register" />
 
 </RelativeLayout>

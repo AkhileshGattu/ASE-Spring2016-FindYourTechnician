@@ -36,7 +36,8 @@
         android:textColor="#ffffff"
         android:layout_marginTop="58dp"
         android:layout_below="@+id/LoginContent_PasswordTextField"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="Login" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -66,25 +67,49 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Are you a new user?"
-        android:id="@+id/textView"
-        android:textColor="#2388fc"
-        android:textColorLink="#f90505"
-        android:textIsSelectable="true"
-        android:textSize="20dp"
-        android:layout_marginTop="45dp"
-        android:layout_below="@+id/LoginContent_LoginButton"
-        android:layout_centerHorizontal="true" />
-    <ImageView
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logotemp"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignRight="@+id/LoginContent_UserNameTextField"
+        android:layout_alignEnd="@+id/LoginContent_UserNameTextField"
+        android:layout_below="@+id/LoginContent_LoginButton">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/relativeLayout2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Are you a new user?"
+                android:id="@+id/textView"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#2388fc"
+                android:textColorLink="#f90505"
+                android:onClick="Registration" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relativeLayout2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Logo"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logotemp" />
+        </RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
