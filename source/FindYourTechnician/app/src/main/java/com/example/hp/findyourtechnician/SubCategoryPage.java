@@ -18,7 +18,7 @@ public class SubCategoryPage extends AppCompatActivity {
 
     Spinner ActivitySubCategory_Spinner;
     ArrayAdapter<CharSequence> ActivitySubCategory_adapter;
-    String SubCategorySelected,Category;
+    String SubCategorySelected,Category,Location;
     TextView ActivitySubCategory_DescriptionTextView,ErrorText;
     EditText ActivitySubCategory_Description;
     Button ActivitySubCategory_GetList;
@@ -29,6 +29,7 @@ public class SubCategoryPage extends AppCompatActivity {
         setContentView(R.layout.activity_sub_category_page);
         Intent intent = getIntent();
         Category = intent.getStringExtra("Category");
+        Location = intent.getStringExtra("Location");
 
         ActivitySubCategory_Spinner = (Spinner)findViewById(R.id.ContentTechnicianDetails_spinner);
         if(Category.equalsIgnoreCase("Carpenter"))
@@ -71,6 +72,7 @@ public class SubCategoryPage extends AppCompatActivity {
         else {
             Intent intent = new Intent(SubCategoryPage.this, technicians_list.class);
             intent.putExtra("Category", Category);
+            intent.putExtra("Location", Location);
             intent.putExtra("SubCategory", SubCategorySelected);
             startActivity(intent);
         }

@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -30,6 +31,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
 public class Home extends AppCompatActivity {
@@ -46,15 +48,18 @@ public class Home extends AppCompatActivity {
     double PresentLocationLatitude = 0;
     double PresentLocationLongitude = 0;
     StringBuilder UserPresentAddress;
+    EditText s;
+    Button HomeActivity_EditProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        EditText s = (EditText) findViewById(R.id.Location_Search);
-        //s.setQueryHint("Enter search location");
+        s = (EditText) findViewById(R.id.Location_Search);
+        HomeActivity_EditProfile = (Button)findViewById(R.id.Home_EditProfileButton);
 
+/*
         PresentLocationGeocoder = new Geocoder(this);
         PresentLocation = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         PresentLocationListener = new LocationListener() {
@@ -90,6 +95,7 @@ public class Home extends AppCompatActivity {
         PresentLocation.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, PresentLocationListener);
         //PresentLocationLatitude = PresentLocation.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude();
         //PresentLocationLongitude = PresentLocation.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude();
+
         if(PresentLocation != null) {
             PresentLocationLatLng = new LatLng(PresentLocation.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude(), PresentLocation.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude());
         }
@@ -102,11 +108,20 @@ public class Home extends AppCompatActivity {
             Address PresentLocationAddress = PresentLocationAddresses.get(0);
             UserPresentAddress = new StringBuilder();
 
+
             for (int i = 0; i < PresentLocationAddress.getMaxAddressLineIndex(); i++) {
 
                 UserPresentAddress.append(PresentLocationAddress.getAddressLine(i)).append("\t");
 
             }
+
+            int ind = PresentLocationAddress.getMaxAddressLineIndex()-1;
+            int startind = PresentLocationAddress.getAddressLine(ind).length()-5;
+            int lastind = PresentLocationAddress.getAddressLine(ind).length();
+            UserPresentAddress.append(PresentLocationAddress.getAddressLine(ind).substring(startind,lastind));
+
+            ind = UserPresentAddress.length();
+
             //UserPresentAddress.append(PresentLocationAddress.getCountryName()).append("\t");
 
             String addr = UserPresentAddress.toString();
@@ -123,12 +138,12 @@ public class Home extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+*/
         Resources res = getResources();
         tech = res.getStringArray(R.array.technicians);
         techDesc = res.getStringArray(R.array.technicianDescriptions);
         list = (ListView) findViewById(R.id.Technicians_List);
-        sampleAdapter SA = new sampleAdapter(this,tech,techimages,techDesc);
+        sampleAdapter SA = new sampleAdapter(this,tech,techimages, techDesc);
         list.setAdapter(SA);
 
         list.setOnItemClickListener(
@@ -139,7 +154,9 @@ public class Home extends AppCompatActivity {
 
                         Intent intent = new Intent(Home.this, SubCategoryPage.class);
                         String CategorySelected = (String) parent.getItemAtPosition(position);
-                        intent.putExtra("Category",CategorySelected);
+                        intent.putExtra("Category", CategorySelected);
+                        String UserAddress = s.getText().toString();
+                        intent.putExtra("Location", UserAddress);
                         startActivity(intent);
 
                     }
@@ -147,17 +164,12 @@ public class Home extends AppCompatActivity {
 
     }
 
-    public void User_Login(View view)
+    public void EditProfile(View view)
     {
-        Intent intent = new Intent(Home.this,UserLogin.class);
+        Intent intent = new Intent(Home.this,EditProfilePage.class);
         startActivity(intent);
     }
 
-    public void TechnicianRegistration(View view)
-    {
-        Intent intent = new Intent(Home.this,TechnicianProfileRegistration.class);
-        startActivity(intent);
-    }
 }
 
 class sampleAdapter extends ArrayAdapter<String>

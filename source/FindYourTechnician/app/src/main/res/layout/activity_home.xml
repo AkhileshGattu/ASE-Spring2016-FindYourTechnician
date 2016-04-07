@@ -9,67 +9,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.hp.findyourtechnician.Home">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="500dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/linearLayout"
-        android:clickable="false">
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:id="@+id/Location_Search"
+        android:hint="Enter the search location" />
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/Location_Search"
-            android:layout_weight="1"
-            android:text="Enter Search Location" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignRight="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:id="@+id/linearLayout2"
-        android:onClick="Category">
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Technicians_List"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/relativeLayout">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:id="@+id/Login_home"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="User_Login" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Are you a Technician"
-            android:id="@+id/HomeContent_technicianTextView"
-            android:textColor="#1728e1"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="TechnicianRegistration" />
-    </RelativeLayout>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="375dp"
+        android:layout_marginTop="150dp"
+        android:id="@+id/Technicians_List"
+        android:layout_weight="1" />
+    <Button
+        android:layout_marginLeft="230dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit profile"
+        android:background="#2105f3"
+        android:textColor="#ffffff"
+        android:id="@+id/Home_EditProfileButton"
+        android:onClick="EditProfile" />
+    <ImageView
+        android:src="@drawable/logotemp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp" />
 
 </RelativeLayout>

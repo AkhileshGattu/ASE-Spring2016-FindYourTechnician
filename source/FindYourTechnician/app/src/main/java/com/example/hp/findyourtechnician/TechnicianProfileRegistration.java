@@ -73,7 +73,7 @@ public class TechnicianProfileRegistration extends AppCompatActivity {
         String Zipcode = ((EditText)findViewById(R.id.LoginContent_PincodeTextField)).getText().toString();
         String Experience = ((EditText)findViewById(R.id.LoginContent_ExperienceTextField)).getText().toString();
         String BaseFare = ((EditText)findViewById(R.id.LoginContent_BaseFareTextField)).getText().toString();
-        String Expertise = findViewById(R.id.LoginContent_Expertise).toString();
+        String Expertise = expertise.getSelectedItem().toString();
 
         //Firebase RegistrationRef = new Firebase("https://findyourtechnician.firebaseio.com/");
         Firebase RegistrationChildRef = RegistrationRef.child("Technicians").child(UserName);

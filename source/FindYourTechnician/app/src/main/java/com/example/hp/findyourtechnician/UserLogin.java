@@ -30,7 +30,7 @@ public class UserLogin extends AppCompatActivity {
 
     public void Login(View view)
     {
-        Firebase LoginRef = new Firebase("https://akhileshapp.firebaseio.com/Users");
+        Firebase LoginRef = new Firebase("https://findyourtechnician.firebaseio.com/Users");
         final String UserName = ((EditText)findViewById(R.id.LoginContent_UserNameTextField)).getText().toString();
         final String password = ((EditText)findViewById(R.id.LoginContent_PasswordTextField)).getText().toString();
 
@@ -76,6 +76,18 @@ public class UserLogin extends AppCompatActivity {
     public void Registration(View view)
     {
         Intent intent = new Intent(UserLogin.this, UserRegistration.class);
+        startActivity(intent);
+    }
+
+    public void ForgotPassword(View view)
+    {
+        Intent intent = new Intent(UserLogin.this,ForgotPassword.class);
+        startActivity(intent);
+    }
+
+    public void TechnicianRegistration(View view)
+    {
+        Intent intent = new Intent(UserLogin.this,TechnicianProfileRegistration.class);
         startActivity(intent);
     }
 

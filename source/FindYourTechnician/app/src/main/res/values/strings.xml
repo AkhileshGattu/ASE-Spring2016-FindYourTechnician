@@ -94,5 +94,8 @@
     </string-array>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_success_screen">SuccessScreen</string>
+    <string name="title_activity_change_password">ChangePassword</string>
+    <string name="title_activity_edit_profile_page">EditProfilePage</string>
+    <string name="title_activity_forgot_password">ForgotPassword</string>
 
 </resources>
