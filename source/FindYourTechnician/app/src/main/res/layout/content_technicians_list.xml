@@ -17,14 +17,98 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/textView4"
+        android:id="@+id/HeaderLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="            Name"
+            android:id="@+id/Technician_List_Name"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/textView21" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView21"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/Technician_List_Name"
+            android:layout_toEndOf="@+id/Technician_List_Name"
+            android:text="          " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="      Experience"
+            android:id="@+id/Technician_List_Experience"
+            android:layout_toRightOf="@+id/textView21"
+            android:layout_toEndOf="@+id/textView21"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/textView23" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="          "
+            android:id="@+id/textView23"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/Technician_List_Experience"
+            android:layout_toEndOf="@+id/Technician_List_Experience" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   Base Fare"
+            android:id="@+id/Technician_List_BaseFare"
+            android:layout_toEndOf="@+id/Technician_List_Experience"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/textView25"
+            android:layout_toRightOf="@+id/Technician_List_Experience" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="          "
+            android:id="@+id/textView25"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/Technician_List_BaseFare"
+            android:layout_toEndOf="@+id/Technician_List_BaseFare" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="          Rating"
+            android:id="@+id/Technician_List_Rating"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/textView25"
+            android:layout_alignLeft="@+id/textView25"
+            android:layout_alignStart="@+id/textView25" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="                           "
+            android:id="@+id/textView20"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/Technician_List_Name"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/TechnicianlistView"
-        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        />
+        android:layout_below="@+id/HeaderLayout" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,15 +137,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/SubCategorytextView"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4"
-        android:textSize="20dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/UserLocationTextView"
         android:layout_alignBottom="@+id/textView4"
         android:layout_toRightOf="@+id/textView4"
         android:layout_toEndOf="@+id/textView4"

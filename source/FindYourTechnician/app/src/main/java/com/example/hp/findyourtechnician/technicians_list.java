@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
@@ -33,10 +34,10 @@ public class technicians_list extends AppCompatActivity {
     String CategorySelected,SubCategorySelected,Location;
     TextView Category,SubCategory,ULocation;
     ArrayList<HashMap<String,String>> TechList = new ArrayList<>();
-    String[] techniciannames;
-    String[] experience;
-    String[] ratings;
-    String[] basecharges;
+    String[] techniciannames = new String[10];
+    String[] experience = new String[10];
+    String[] ratings = new String[10];
+    String[] basecharges = new String[10];
     ListView list;
     int i=0;
     String Name;
@@ -51,14 +52,9 @@ public class technicians_list extends AppCompatActivity {
         Location = intent.getStringExtra("Location");
         Category = (TextView)findViewById(R.id.CategorytextView);
         SubCategory = (TextView)findViewById(R.id.SubCategorytextView);
-        ULocation = (TextView)findViewById(R.id.UserLocationTextView);
         Category.setText(CategorySelected);
         SubCategory.setText(SubCategorySelected);
-        ULocation.setText(Location);
 
-        list=(ListView) findViewById(R.id.TechnicianlistView);
-        CustomAdapter adapter=new CustomAdapter();
-        list.setAdapter(adapter);
 
         Resources res=getResources();
         //techniciannames=res.getStringArray(R.array.Technician_names);
@@ -85,11 +81,11 @@ public class technicians_list extends AppCompatActivity {
                         Fare = category.child("BaseFare").getValue().toString();
                         Name = FullName;
                         TechMap.put("FullName", FullName);
-                        //techniciannames[i] = FullName;
+                        techniciannames[i] = FullName;
                         TechMap.put("Experience", Experience);
-                        //experience[i] = Experience;
+                        experience[i] = Experience;
                         TechMap.put("BaseFare", Fare);
-                        //basecharges[i] = Fare;
+                        basecharges[i] = Fare;
                         TechList.add(TechMap);
                         i++;
                     }
@@ -102,6 +98,20 @@ public class technicians_list extends AppCompatActivity {
 
             }
         });
+
+        list=(ListView) findViewById(R.id.TechnicianlistView);
+        TechListAdapter adapter=new TechListAdapter(this, techniciannames, experience, basecharges, ratings);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(technicians_list.this, TechnicianDetails.class);
+                String Technician = (String) parent.getItemAtPosition(position);
+                intent.putExtra("Name", Technician);
+                startActivity(intent);
+            }
+        });
     }
 /*
     public void showAlert(View view){
@@ -111,53 +121,40 @@ public class technicians_list extends AppCompatActivity {
         alertD.show();
     }
 */
-    public class CustomAdapter extends BaseAdapter{
+    public class TechListAdapter extends ArrayAdapter<String>{
 
-
-        @Override
-        public int getCount() {
-            return TechList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
+    Context context;
+    String[] TechTitles;
+    String[] TechCharges;
+    String[] TechExperience;
+    String[] Techratings;
+    TechListAdapter(Context c, String[] titles, String[] experience, String[] charges, String[] ratings)
+    {
+        super(c, R.layout.row_layout, R.id.TechnicianNametextView, titles);
+        this.context = c;
+        this.TechTitles = titles;
+        this.TechExperience = experience;
+        this.TechCharges = charges;
+        this.Techratings = ratings;
+    }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            ViewHolder viewHolder;
-            if (convertView == null) {
-                convertView = getLayoutInflater().inflate(R.layout.row_layout, parent, false);
-                viewHolder = new ViewHolder();
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View v = inflater.inflate(R.layout.row_layout,parent,false);
 
-                viewHolder.TechName = (TextView) convertView.findViewById(R.id.TechnicianNametextView);
-                viewHolder.TechExperience = (TextView) convertView.findViewById(R.id.ExperiencetextView);
-                viewHolder.TechFare = (TextView) convertView.findViewById(R.id.BaseChargestextView);
-                convertView.setTag(viewHolder);
-            }
-            else{
-                viewHolder = (ViewHolder)convertView.getTag();
-            }
-            //TextView myratings=(TextView) row.findViewById(R.id.RatingstextView);
+            TextView tech = (TextView) v.findViewById(R.id.TechnicianNametextView);
+            TextView Exp = (TextView) v.findViewById(R.id.ExperiencetextView);
+            TextView Charge = (TextView) v.findViewById(R.id.BaseChargestextView);
+            TextView Rating = (TextView) v.findViewById(R.id.RatingstextView);
 
-            HashMap<String,String> technicianList = TechList.get(position);
+            tech.setText(TechTitles[position]);
+            Exp.setText(TechExperience[position]);
+            Charge.setText(TechExperience[position]);
+            Rating.setText(TechExperience[position]);
 
-            viewHolder.TechName.setText(technicianList.get("FullName"));
-            viewHolder.TechExperience.setText(technicianList.get("Experience"));
-            viewHolder.TechFare.setText(technicianList.get("BaseFare"));
-            //myratings.setText(chargesArray[position]);
-            return convertView;
-        }
-
-        class ViewHolder{
-            TextView TechName,TechExperience,TechFare;
+            return v;
         }
     }
 

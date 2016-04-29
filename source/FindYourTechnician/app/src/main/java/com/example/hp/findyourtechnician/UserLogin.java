@@ -47,9 +47,11 @@ public class UserLogin extends AppCompatActivity {
 
                     if (dataSnapshot.hasChild(UserName)) {
                         DataSnapshot pass = dataSnapshot.child(UserName).child("Password");
+                        String UserN = dataSnapshot.child(UserName).child("UserName").getValue().toString();
                         if (password.equals(pass.getValue().toString())) {
                             Pass.setError(null);
                             Intent intent = new Intent(UserLogin.this, Home.class);
+                            intent.putExtra("UserName",UserN);
                             startActivity(intent);
                         } else {
                             Pass.setError("Enter Correct Password");

@@ -117,7 +117,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="John Doe"
         android:id="@+id/ContentTechnicianDetails_TechnicianName"
         android:textSize="20dp"
         android:layout_marginLeft="-5dp"
@@ -130,7 +129,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="2 yrs"
         android:layout_marginLeft="5dp"
         android:id="@+id/ContentTechnicianDetails_TechnicianExperience"
         android:layout_above="@+id/ContentTechnicianDetails_Category"
@@ -143,7 +141,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Painting"
         android:layout_marginBottom="-2dp"
         android:layout_marginLeft="5dp"
         android:id="@+id/ContentTechnicianDetails_TechnicianCategory"
@@ -157,11 +154,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="+18167269523"
         android:id="@+id/ContentTechnicianDetails_TechnicianPhoneNumber"
         android:layout_above="@+id/ContentTechnicianDetails_EmailTextView"
-        android:layout_toRightOf="@+id/ContentTechnicianDetails_TechnicianExperience"
-        android:layout_toEndOf="@+id/ContentTechnicianDetails_TechnicianExperience"
+        android:layout_toRightOf="@+id/ContentTechnicianDetails_ContactNumberTextView"
+        android:layout_toEndOf="@+id/ContentTechnicianDetails_ContactNumberTextView"
         android:textSize="20dp"
         android:textColor="#000000"
         android:phoneNumber="false" />
@@ -170,7 +166,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="john_doe@gmail.com"
         android:id="@+id/ContentTechnicianDetails_TechnicianEmail"
         android:layout_above="@+id/ContentTechnicianDetails_Cost1TextView"
         android:layout_toRightOf="@+id/ContentTechnicianDetails_Category"
@@ -182,7 +177,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="$55"
         android:layout_marginLeft="5dp"
         android:id="@+id/ContentTechnicianDetails_TechnicianCost"
         android:textColor="#000000"
@@ -190,5 +184,27 @@
         android:layout_alignBottom="@+id/ContentTechnicianDetails_Cost2TextView"
         android:layout_toRightOf="@+id/ContentTechnicianDetails_Cost2TextView"
         android:layout_toEndOf="@+id/ContentTechnicianDetails_Cost2TextView" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/DialButton"
+        android:src="@android:drawable/sym_action_call"
+        android:layout_alignTop="@+id/ContentTechnicianDetails_TechnicianPhoneNumber"
+        android:layout_toRightOf="@+id/ContentTechnicianDetails_TechnicianPhoneNumber"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_above="@+id/ContentTechnicianDetails_TechnicianEmail"
+        android:onClick="CallTechnician" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feedback"
+        android:id="@+id/ContentTechnicianDetails_Feedback"
+        android:layout_below="@+id/ContentTechnicianDetails_Cost2TextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:onClick="Feedback" />
 
 </RelativeLayout>

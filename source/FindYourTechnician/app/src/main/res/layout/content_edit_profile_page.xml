@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="First Name  : "
-        android:id="@+id/textView11"
+        android:id="@+id/ForgotPassword_UserName_TextView"
         android:layout_below="@+id/textView10"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -71,7 +71,7 @@
         android:ems="10"
         android:id="@+id/EditProfile_FirstName"
         android:layout_marginTop="-10dp"
-        android:layout_alignTop="@+id/textView11"
+        android:layout_alignTop="@+id/ForgotPassword_UserName_TextView"
         android:layout_alignLeft="@+id/EditProfile_UserName"
         android:layout_alignStart="@+id/EditProfile_UserName" />
 
@@ -82,7 +82,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:id="@+id/textView12"
-        android:layout_below="@+id/textView11"
+        android:layout_below="@+id/ForgotPassword_UserName_TextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="#000000"
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/ForgotPassword_EmailID"
+        android:id="@+id/ForgotPassword_UserName"
         android:layout_marginBottom="-7dp"
         android:layout_alignBottom="@+id/textView13"
         android:layout_alignLeft="@+id/EditProfile_LastName"
@@ -143,11 +143,11 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/EditProfile_Contact"
         android:layout_marginBottom="-7dp"
         android:layout_alignBottom="@+id/textView14"
-        android:layout_alignLeft="@+id/ForgotPassword_EmailID"
-        android:layout_alignStart="@+id/ForgotPassword_EmailID" />
+        android:layout_alignLeft="@+id/ForgotPassword_UserName"
+        android:layout_alignStart="@+id/ForgotPassword_UserName" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -166,7 +166,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="click here"
+        android:text="Change Password"
         android:id="@+id/ForgotPassword_SendButton"
         android:layout_marginTop="-11dp"
         android:layout_marginLeft="15dp"
@@ -174,7 +174,8 @@
         android:layout_toRightOf="@+id/textView15"
         android:layout_toEndOf="@+id/textView15"
         android:textColor="#ffffff"
-        android:background="#3e0df2" />
+        android:background="#3e0df2"
+        android:onClick="ChangePassword" />
 
     <Button
         android:layout_width="wrap_content"
@@ -185,6 +186,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="52dp"
         android:background="#3e0df2"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:onClick="UpdateProfile" />
 
 </RelativeLayout>

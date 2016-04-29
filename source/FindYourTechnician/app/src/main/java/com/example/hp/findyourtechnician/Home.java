@@ -50,6 +50,7 @@ public class Home extends AppCompatActivity {
     StringBuilder UserPresentAddress;
     EditText s;
     Button HomeActivity_EditProfile;
+    String Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,9 @@ public class Home extends AppCompatActivity {
 
         s = (EditText) findViewById(R.id.Location_Search);
         HomeActivity_EditProfile = (Button)findViewById(R.id.Home_EditProfileButton);
+
+        Intent LoginIntent = getIntent();
+        Name = LoginIntent.getStringExtra("UserName");
 
 /*
         PresentLocationGeocoder = new Geocoder(this);
@@ -167,6 +171,7 @@ public class Home extends AppCompatActivity {
     public void EditProfile(View view)
     {
         Intent intent = new Intent(Home.this,EditProfilePage.class);
+        intent.putExtra("UserName",Name);
         startActivity(intent);
     }
 

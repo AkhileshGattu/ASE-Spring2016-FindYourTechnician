@@ -55,7 +55,7 @@ public class UserRegistration extends AppCompatActivity {
         //Firebase RegistrationRef = new Firebase("https://findyourtechnician.firebaseio.com/");
         Firebase RegistrationChildRef = RegistrationRef.child("Users").child(UserName);
 
-        if (!validateUser(UserName)) {
+        if (validateUser(UserName)) {
             Username.setError("User name is already in use");
             Username.requestFocus();
         } else if (!validateEmail(EmailId)) {
@@ -96,6 +96,9 @@ public class UserRegistration extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(User)){
                     flag = true;
+                }
+                else{
+                    flag = false;
                 }
             }
 
