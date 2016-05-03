@@ -16,7 +16,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-public class ForgotPassword extends AppCompatActivity {
+public class TechnicianForgotPassword extends AppCompatActivity {
 
     String UserName, Password, PhoneNumber;
     EditText Name;
@@ -25,7 +25,7 @@ public class ForgotPassword extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_technician_forgot_password);
 
         Firebase.setAndroidContext(this);
 
@@ -57,9 +57,9 @@ public class ForgotPassword extends AppCompatActivity {
                         smsManager = SmsManager.getDefault();
                         smsManager.sendTextMessage(PhoneNumber, null, Message, null, null);
 
-                        Toast.makeText(getApplicationContext(),"Sms has been sent to the registered phone number", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Sms has been sent to the registered phone number", Toast.LENGTH_LONG).show();
 
-                        Intent intent = new Intent(ForgotPassword.this, UserLogin.class);
+                        Intent intent = new Intent(TechnicianForgotPassword.this, TechnicianLogin.class);
                         startActivity(intent);
                     }
                     else {
@@ -75,5 +75,6 @@ public class ForgotPassword extends AppCompatActivity {
             });
         }
     }
+
 
 }

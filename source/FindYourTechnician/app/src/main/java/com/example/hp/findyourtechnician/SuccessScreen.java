@@ -17,7 +17,7 @@ public class SuccessScreen extends AppCompatActivity {
     }
     public void Home_Redirect(View view)
     {
-        Intent intent = new Intent(SuccessScreen.this,Home.class);
+        Intent intent = new Intent(SuccessScreen.this,UserLogin.class);
         startActivity(intent);
     }
 

@@ -9,15 +9,15 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.hp.findyourtechnician.UserLogin"
-    tools:showIn="@layout/activity_user_login"
+    tools:context="com.example.hp.findyourtechnician.TechnicianLogin"
+    tools:showIn="@layout/activity_technician_login"
     android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Sign in to Continue"
+        android:text="Technician Sign In"
         android:id="@+id/Login"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="false"
@@ -66,27 +66,27 @@
         android:singleLine="false"
         android:background="#c0392b"
         android:allowUndo="false"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/LoginContent_PasswordTextField"
-        android:layout_alignLeft="@+id/LoginContent_PasswordTextField"
-        android:layout_alignStart="@+id/LoginContent_PasswordTextField"
+        android:layout_marginTop="38dp"
         android:textColor="#ffffff"
         android:nestedScrollingEnabled="false"
         android:onClick="Login"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/LoginContent_PasswordTextField"
+        android:layout_alignLeft="@+id/LoginContent_PasswordTextField"
+        android:layout_alignStart="@+id/LoginContent_PasswordTextField" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:id="@+id/LoginContent_SignUpButton"
-        android:layout_above="@+id/ForgetPassword_User"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
         android:background="#c0392b"
         android:textColor="#ffffff"
         android:onClick="Registration"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_above="@+id/ForgetPassword_User"
+        android:layout_alignRight="@+id/LoginContent_PasswordTextField"
+        android:layout_alignEnd="@+id/LoginContent_PasswordTextField" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -102,21 +102,6 @@
         android:layout_centerHorizontal="true"
         android:onClick="ForgotPassword"
         android:nestedScrollingEnabled="false"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Are you a Technician?"
-        android:id="@+id/textView"
-        android:textSize="18dp"
-        android:textColor="#2f57bd"
-
-        android:singleLine="false"
-        android:onClick="TechnicianRegistration"
-        android:layout_below="@+id/ForgetPassword_User"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold" />
 
     <ImageView

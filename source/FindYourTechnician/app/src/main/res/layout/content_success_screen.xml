@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.hp.findyourtechnician.SuccessScreen"
-    tools:showIn="@layout/activity_success_screen">
+    tools:showIn="@layout/activity_success_screen"
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,14 +47,15 @@
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/imageView2"
-        android:layout_marginTop="35dp"
-        android:src="@drawable/okay"
+        android:src="@drawable/success"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView6"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5" />
+        android:layout_alignRight="@+id/textView7"
+        android:layout_alignEnd="@+id/textView7" />
 
     <Button
         android:layout_width="wrap_content"
@@ -61,7 +63,7 @@
         android:text="OK"
         android:id="@+id/button_OK"
         android:layout_marginTop="25dp"
-        android:background="#0f0ff3"
+        android:background="#c03622"
         android:textColor="#ffffff"
         android:onClick="Home_Redirect"
         android:layout_below="@+id/imageView2"

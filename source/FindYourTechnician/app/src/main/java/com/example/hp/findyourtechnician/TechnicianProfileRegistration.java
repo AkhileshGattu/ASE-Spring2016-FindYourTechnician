@@ -25,7 +25,7 @@ public class TechnicianProfileRegistration extends AppCompatActivity {
     Spinner ActivityCategory_Spinner;
     ArrayAdapter<CharSequence> ActivityCategory_adapter;
     EditText Firstname, Lastname, Emailid, contact, Username, password, Confirmpassword;
-    EditText address, state, zipcode, city, experience, Basefare;
+    EditText address, state, zipcode, city, experience, country;
     Spinner expertise;
     Firebase RegistrationRef;
     boolean flag;
@@ -54,7 +54,7 @@ public class TechnicianProfileRegistration extends AppCompatActivity {
         city = (EditText)findViewById(R.id.LoginContent_CityTextField);
         zipcode = (EditText)findViewById(R.id.LoginContent_PincodeTextField);
         experience = (EditText)findViewById(R.id.LoginContent_ExperienceTextField);
-        Basefare = (EditText)findViewById(R.id.LoginContent_BaseFareTextField);
+        country = (EditText)findViewById(R.id.LoginContent_BaseFareTextField);
         expertise = (Spinner) findViewById(R.id.LoginContent_Expertise);
     }
 
@@ -72,7 +72,7 @@ public class TechnicianProfileRegistration extends AppCompatActivity {
         String City = ((EditText)findViewById(R.id.LoginContent_CityTextField)).getText().toString();
         String Zipcode = ((EditText)findViewById(R.id.LoginContent_PincodeTextField)).getText().toString();
         String Experience = ((EditText)findViewById(R.id.LoginContent_ExperienceTextField)).getText().toString();
-        String BaseFare = ((EditText)findViewById(R.id.LoginContent_BaseFareTextField)).getText().toString();
+        String Country = ((EditText)findViewById(R.id.LoginContent_BaseFareTextField)).getText().toString();
         String Expertise = expertise.getSelectedItem().toString();
 
         //Firebase RegistrationRef = new Firebase("https://findyourtechnician.firebaseio.com/");
@@ -106,22 +106,22 @@ public class TechnicianProfileRegistration extends AppCompatActivity {
             Confirmpassword.setError("Password and confirm password should be same");
             password.requestFocus();
         } else {
-            RegistrationChildRef.child("FirstName").setValue(FirstName);
-            RegistrationChildRef.child("LastName").setValue(LastName);
-            RegistrationChildRef.child("EmailId").setValue(EmailId);
-            RegistrationChildRef.child("Phone").setValue(Contact);
-            RegistrationChildRef.child("Address").setValue(Address);
-            RegistrationChildRef.child("State").setValue(State);
-            RegistrationChildRef.child("City").setValue(City);
-            RegistrationChildRef.child("Zipcode").setValue(Zipcode);
-            RegistrationChildRef.child("UserName").setValue(UserName);
-            RegistrationChildRef.child("Password").setValue(Password);
-            RegistrationChildRef.child("Experience").setValue(Experience);
-            RegistrationChildRef.child("BaseFare").setValue(BaseFare);
-            RegistrationChildRef.child("Expertise").setValue(Expertise);
-
-            Intent intent = new Intent(TechnicianProfileRegistration.this, SuccessScreen.class);
+            Intent intent = new Intent(TechnicianProfileRegistration.this, BaseFares.class);
+            intent.putExtra("FirstName", FirstName);
+            intent.putExtra("LastName", LastName);
+            intent.putExtra("EmailId", EmailId);
+            intent.putExtra("Phone", Contact);
+            intent.putExtra("Address", Address);
+            intent.putExtra("State", State);
+            intent.putExtra("City", City);
+            intent.putExtra("Zipcode", Zipcode);
+            intent.putExtra("UserName", UserName);
+            intent.putExtra("Password", Password);
+            intent.putExtra("Experience", Experience);
+            intent.putExtra("Country", Country);
+            intent.putExtra("Category", Expertise);
             startActivity(intent);
+
         }
     }
 

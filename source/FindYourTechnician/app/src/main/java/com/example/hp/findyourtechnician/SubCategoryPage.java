@@ -18,7 +18,7 @@ public class SubCategoryPage extends AppCompatActivity {
 
     Spinner ActivitySubCategory_Spinner;
     ArrayAdapter<CharSequence> ActivitySubCategory_adapter;
-    String SubCategorySelected,Category,Location;
+    String SubCategorySelected,Category,Location, Uname;
     TextView ActivitySubCategory_DescriptionTextView,ErrorText;
     EditText ActivitySubCategory_Description;
     Button ActivitySubCategory_GetList;
@@ -30,6 +30,7 @@ public class SubCategoryPage extends AppCompatActivity {
         Intent intent = getIntent();
         Category = intent.getStringExtra("Category");
         Location = intent.getStringExtra("Location");
+        Uname = intent.getStringExtra("UserName");
 
         ActivitySubCategory_Spinner = (Spinner)findViewById(R.id.ContentTechnicianDetails_spinner);
         if(Category.equalsIgnoreCase("Carpenter"))
@@ -72,10 +73,17 @@ public class SubCategoryPage extends AppCompatActivity {
         else {
             Intent intent = new Intent(SubCategoryPage.this, technicians_list.class);
             intent.putExtra("Category", Category);
-            intent.putExtra("Location", Location);
+            intent.putExtra("UserName",Uname);
+            intent.putExtra("Location",Location);
             intent.putExtra("SubCategory", SubCategorySelected);
             startActivity(intent);
         }
+    }
+
+    public void SignOut(View view){
+        Intent intent = new Intent(getApplicationContext(), UserLogin.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
 }

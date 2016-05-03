@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.hp.findyourtechnician.EditProfilePage"
-    tools:showIn="@layout/activity_edit_profile_page">
+    tools:showIn="@layout/activity_edit_profile_page"
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +22,8 @@
         android:textSize="28dp"
         android:layout_marginTop="15dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -169,24 +171,38 @@
         android:text="Change Password"
         android:id="@+id/ForgotPassword_SendButton"
         android:layout_marginTop="-11dp"
-        android:layout_marginLeft="15dp"
         android:layout_alignTop="@+id/textView15"
-        android:layout_toRightOf="@+id/textView15"
-        android:layout_toEndOf="@+id/textView15"
         android:textColor="#ffffff"
-        android:background="#3e0df2"
-        android:onClick="ChangePassword" />
+        android:background="#c2392b"
+        android:onClick="ChangePassword"
+        android:layout_toRightOf="@+id/textView15"
+        android:layout_alignRight="@+id/EditProfile_Contact"
+        android:layout_alignEnd="@+id/EditProfile_Contact" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="update profile"
         android:id="@+id/button2"
-        android:layout_below="@+id/ForgotPassword_SendButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
-        android:background="#3e0df2"
+        android:layout_marginTop="41dp"
+        android:background="#c0392b"
         android:textColor="#ffffff"
-        android:onClick="UpdateProfile" />
+        android:onClick="UpdateProfile"
+        android:layout_below="@+id/ForgotPassword_SendButton"
+        android:layout_alignRight="@+id/ForgotPassword_SendButton"
+        android:layout_alignEnd="@+id/ForgotPassword_SendButton"
+        android:layout_alignLeft="@+id/ForgotPassword_SendButton"
+        android:layout_alignStart="@+id/ForgotPassword_SendButton"
+        android:textStyle="bold"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView7"
+        android:src="@drawable/bob_handup"
+        android:layout_toStartOf="@+id/ForgotPassword_SendButton"
+        android:layout_below="@+id/ForgotPassword_SendButton"
+        android:layout_toLeftOf="@+id/ForgotPassword_SendButton" />
 
 </RelativeLayout>

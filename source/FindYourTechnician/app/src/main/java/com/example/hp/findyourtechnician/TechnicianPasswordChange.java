@@ -16,7 +16,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-public class ChangePassword extends AppCompatActivity {
+public class TechnicianPasswordChange extends AppCompatActivity {
 
     String Password,UserName;
     EditText ActivityChangePassword_CurrentPassword,ActivityChangePassword_NewPassword,ActivityChangePassword_ConfirmPassword;
@@ -25,9 +25,9 @@ public class ChangePassword extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        setContentView(R.layout.activity_technician_password_change);
+
         Intent intent = getIntent();
-        Password = intent.getStringExtra("Password");
         UserName = intent.getStringExtra("UserName");
 
         Firebase.setAndroidContext(this);
@@ -36,13 +36,11 @@ public class ChangePassword extends AppCompatActivity {
         ActivityChangePassword_NewPassword = (EditText)findViewById(R.id.ChangePassword_NewPassword);
         ActivityChangePassword_ConfirmPassword = (EditText)findViewById(R.id.ChangePassword_ConfirmPassword);
         ActivityUpdateButton = (Button)findViewById(R.id.ChangePassword_UpdateButton);
-
-
     }
 
     public void UpdatePassword(View view){
 
-        final Firebase UpdatePasswordRef = new Firebase("https://findyourtechnician.firebaseio.com/Users");
+        final Firebase UpdatePasswordRef = new Firebase("https://findyourtechnician.firebaseio.com/Technicians");
         UpdatePasswordRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -57,7 +55,7 @@ public class ChangePassword extends AppCompatActivity {
 
                             Toast.makeText(getApplicationContext(), "Password has been successfully updated", Toast.LENGTH_LONG).show();
 
-                            Intent intent = new Intent(ChangePassword.this, EditProfilePage.class);
+                            Intent intent = new Intent(TechnicianPasswordChange.this, TechnicianHome.class);
                             intent.putExtra("UserName",UserName);
                             startActivity(intent);
                         }
@@ -85,28 +83,5 @@ public class ChangePassword extends AppCompatActivity {
 
     }
 
-    public void UpdateProfile(View view){
-        if(ActivityChangePassword_CurrentPassword.getText().toString().contentEquals(Password)){
-            if(ActivityChangePassword_NewPassword.getText().toString().contentEquals(ActivityChangePassword_ConfirmPassword.getText().toString())){
-                if((ActivityChangePassword_NewPassword.length() >= 8) && (ActivityChangePassword_NewPassword.length() <= 15)){
-                    Intent intent = new Intent(ChangePassword.this,EditProfilePage.class);
-                    intent.putExtra("password",Password);
-                    startActivity(intent);
-                }
-                else{
-                    ActivityChangePassword_NewPassword.setError("Password should be between 8 and 15 characters");
-                    ActivityChangePassword_NewPassword.requestFocus();
-                }
-            }
-            else{
-                ActivityChangePassword_ConfirmPassword.setError("New Password and Confirm Password should be same");
-                ActivityChangePassword_NewPassword.requestFocus();
-            }
-        }
-        else{
-            ActivityChangePassword_CurrentPassword.setError("Please Enter the correct password");
-            ActivityChangePassword_CurrentPassword.requestFocus();
-        }
-    }
 
 }

@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.hp.findyourtechnician.UserRegistration"
-    tools:showIn="@layout/activity_user_registration">
+    tools:showIn="@layout/activity_user_registration"
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +20,9 @@
         android:text="Registration"
         android:id="@+id/LoginContent_RegistrationTextView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#040303"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +33,9 @@
         android:layout_below="@+id/LoginContent_RegistrationTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="53dp" />
+        android:layout_marginTop="53dp"
+        android:textStyle="bold"
+        android:textColor="#070707" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,7 +46,9 @@
         android:layout_marginTop="20dp"
         android:layout_below="@+id/LoginContent_FirstNameTextView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textColor="#070707" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,7 +59,9 @@
         android:layout_below="@+id/LoginContent_LastNameTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="#070707" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +72,9 @@
         android:layout_below="@+id/LoginContent_EmailidTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="#070707" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -74,7 +85,9 @@
         android:layout_below="@+id/LoginContent_ContactTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="#070707" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,7 +98,9 @@
         android:layout_below="@+id/LoginContent_UserNameTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="#070707" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,7 +111,9 @@
         android:layout_below="@+id/LoginContent_PasswordTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="#070707" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -178,9 +195,37 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/LoginContent_RegisterButton"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="49dp"
+        android:onClick="Register"
         android:layout_below="@+id/LoginContent_ConfirmPasswordTextField"
-        android:layout_centerHorizontal="true"
-        android:onClick="Register" />
+        android:layout_alignRight="@+id/LoginContent_RegistrationTextView"
+        android:layout_alignEnd="@+id/LoginContent_RegistrationTextView"
+        android:layout_alignLeft="@+id/LoginContent_RegistrationTextView"
+        android:layout_alignStart="@+id/LoginContent_RegistrationTextView"
+        android:background="#c03622" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:src="@drawable/bob_handup"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/LoginContent_ConfirmPasswordTextField"
+        android:layout_toLeftOf="@+id/LoginContent_RegisterButton"
+        android:layout_toStartOf="@+id/LoginContent_RegisterButton" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/bob_handup"
+        android:layout_below="@+id/LoginContent_ConfirmPasswordTextField"
+        android:layout_toRightOf="@+id/LoginContent_RegisterButton"
+        android:layout_toEndOf="@+id/LoginContent_RegisterButton"
+        android:scaleX="-1"/>
 
 </RelativeLayout>

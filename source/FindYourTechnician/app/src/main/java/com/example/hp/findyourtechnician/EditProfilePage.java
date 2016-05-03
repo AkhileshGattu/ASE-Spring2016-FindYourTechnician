@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -25,8 +26,6 @@ public class EditProfilePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile_page);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         Intent EditProfileIntent = getIntent();
         Name = EditProfileIntent.getStringExtra("UserName");
@@ -47,10 +46,10 @@ public class EditProfilePage extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    First.setText(dataSnapshot.child(Name).child("FirstName").getValue().toString());
-                    Last.setText(dataSnapshot.child(Name).child("LastName").getValue().toString());
-                    Email.setText(dataSnapshot.child(Name).child("EmailId").getValue().toString());
-                    Phone.setText(dataSnapshot.child(Name).child("Phone").getValue().toString());
+                First.setText(dataSnapshot.child(Name).child("FirstName").getValue().toString());
+                Last.setText(dataSnapshot.child(Name).child("LastName").getValue().toString());
+                Email.setText(dataSnapshot.child(Name).child("EmailId").getValue().toString());
+                Phone.setText(dataSnapshot.child(Name).child("Phone").getValue().toString());
 
             }
 
@@ -60,14 +59,6 @@ public class EditProfilePage extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     public void ChangePassword(View view){
@@ -97,6 +88,11 @@ public class EditProfilePage extends AppCompatActivity {
                     EditUserRef.child("LastName").setValue(LastName);
                     EditUserRef.child("EmailId").setValue(EmaiId);
                     EditUserRef.child("Phone").setValue(Contact);
+
+                    Toast.makeText(getApplicationContext(), "Profile has been successfully updated", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(EditProfilePage.this, Home.class);
+                    startActivity(intent);
                 }
             }
 

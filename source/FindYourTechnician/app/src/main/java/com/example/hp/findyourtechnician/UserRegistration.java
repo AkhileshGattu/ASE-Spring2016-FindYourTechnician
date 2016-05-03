@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -22,16 +23,16 @@ import java.util.regex.Pattern;
 public class UserRegistration extends AppCompatActivity {
 
     EditText Firstname, Lastname, Emailid, contact, Username, password, Confirmpassword;
-    Firebase RegistrationRef = new Firebase("https://findyourtechnician.firebaseio.com/");
+    Firebase RegistrationRef;
     boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_registration);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
         Firebase.setAndroidContext(this);
+
+        RegistrationRef = new Firebase("https://findyourtechnician.firebaseio.com/");
 
         Firstname = (EditText)findViewById(R.id.LoginContent_FirstNameTextField);
         Lastname = (EditText)findViewById(R.id.LoginContent_LastNameTextField);
@@ -43,6 +44,7 @@ public class UserRegistration extends AppCompatActivity {
     }
 
     public void Register(View view) {
+
 
         String FirstName = ((EditText) findViewById(R.id.LoginContent_FirstNameTextField)).getText().toString();
         String LastName = ((EditText) findViewById(R.id.LoginContent_LastNameTextField)).getText().toString();
@@ -74,6 +76,8 @@ public class UserRegistration extends AppCompatActivity {
             RegistrationChildRef.child("Phone").setValue(Contact);
             RegistrationChildRef.child("UserName").setValue(UserName);
             RegistrationChildRef.child("Password").setValue(Password);
+
+            Toast.makeText(this, "Registration Successful", Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(UserRegistration.this, UserLogin.class);
             startActivity(intent);

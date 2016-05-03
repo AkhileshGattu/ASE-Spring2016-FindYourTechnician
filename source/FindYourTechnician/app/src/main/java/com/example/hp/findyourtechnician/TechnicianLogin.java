@@ -15,22 +15,25 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-public class UserLogin extends AppCompatActivity {
+public class TechnicianLogin extends AppCompatActivity {
 
     EditText User, Pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_login);
+        setContentView(R.layout.activity_technician_login);
+
         Firebase.setAndroidContext(this);
-        User = ((EditText)findViewById(R.id.LoginContent_UserNameTextField));
-        Pass = ((EditText)findViewById(R.id.LoginContent_PasswordTextField));
+
+        User = (EditText) findViewById(R.id.LoginContent_UserNameTextField);
+        Pass = (EditText) findViewById(R.id.LoginContent_PasswordTextField);
+
     }
 
-    public void Login(View view)
-    {
-        Firebase LoginRef = new Firebase("https://findyourtechnician.firebaseio.com/Users");
+    public void Login(View view){
+
+        Firebase LoginRef = new Firebase("https://findyourtechnician.firebaseio.com/Technicians");
         final String UserName = ((EditText)findViewById(R.id.LoginContent_UserNameTextField)).getText().toString();
         final String password = ((EditText)findViewById(R.id.LoginContent_PasswordTextField)).getText().toString();
 
@@ -50,7 +53,8 @@ public class UserLogin extends AppCompatActivity {
                         String UserN = dataSnapshot.child(UserName).child("UserName").getValue().toString();
                         if (password.equals(pass.getValue().toString())) {
                             Pass.setError(null);
-                            Intent intent = new Intent(UserLogin.this, Home.class);
+
+                            Intent intent = new Intent(TechnicianLogin.this, TechnicianHome.class);
                             intent.putExtra("UserName",UserN);
                             startActivity(intent);
                         } else {
@@ -75,21 +79,14 @@ public class UserLogin extends AppCompatActivity {
         }
     }
 
-    public void Registration(View view)
-    {
-        Intent intent = new Intent(UserLogin.this, UserRegistration.class);
+    public void Registration(View view){
+        Intent intent = new Intent(TechnicianLogin.this, TechnicianProfileRegistration.class);
         startActivity(intent);
     }
 
     public void ForgotPassword(View view)
     {
-        Intent intent = new Intent(UserLogin.this,ForgotPassword.class);
-        startActivity(intent);
-    }
-
-    public void TechnicianRegistration(View view)
-    {
-        Intent intent = new Intent(UserLogin.this,TechnicianLogin.class);
+        Intent intent = new Intent(TechnicianLogin.this,TechnicianForgotPassword.class);
         startActivity(intent);
     }
 

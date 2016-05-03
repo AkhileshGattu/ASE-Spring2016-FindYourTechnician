@@ -38,7 +38,7 @@ public class Home extends AppCompatActivity {
 
     String[] tech;
     String[] techDesc;
-    int[] techimages = {R.drawable.carpenter, R.drawable.electrician, R.drawable.painter, R.drawable.plumber};
+    int[] techimages = {R.drawable.carpenter, R.drawable.electrician, R.drawable.painter, R.drawable.plumber, R.drawable.mechanic};
     ListView list;
     private GoogleMap mMap;
     LocationManager PresentLocation;
@@ -113,22 +113,28 @@ public class Home extends AppCompatActivity {
             UserPresentAddress = new StringBuilder();
 
 
-            for (int i = 0; i < PresentLocationAddress.getMaxAddressLineIndex(); i++) {
+            for (int i = PresentLocationAddress.getMaxAddressLineIndex()-1; i < PresentLocationAddress.getMaxAddressLineIndex(); i++) {
 
                 UserPresentAddress.append(PresentLocationAddress.getAddressLine(i)).append("\t");
 
             }
 
             int ind = PresentLocationAddress.getMaxAddressLineIndex()-1;
-            int startind = PresentLocationAddress.getAddressLine(ind).length()-5;
+            int startind = (PresentLocationAddress.getAddressLine(ind).length())-5;
             int lastind = PresentLocationAddress.getAddressLine(ind).length();
-            UserPresentAddress.append(PresentLocationAddress.getAddressLine(ind).substring(startind,lastind));
+            UserPresentAddress.append("sm");
 
-            ind = UserPresentAddress.length();
+            StringBuilder PresentAdd = new StringBuilder();
+            //UserPresentAddress = null;
+
+            PresentAdd.append(PresentLocationAddress.getAddressLine(ind).substring(startind, lastind));
+
+            //ind = UserPresentAddress.length();
 
             //UserPresentAddress.append(PresentLocationAddress.getCountryName()).append("\t");
 
-            String addr = UserPresentAddress.toString();
+
+            String addr = PresentAdd.toString();
             EditText addres = (EditText)findViewById(R.id.Location_Search);
             //EditText addres = (EditText) findViewById(R.id.Location_Search);
             addres.setText(addr);
@@ -161,6 +167,7 @@ public class Home extends AppCompatActivity {
                         intent.putExtra("Category", CategorySelected);
                         String UserAddress = s.getText().toString();
                         intent.putExtra("Location", UserAddress);
+                        intent.putExtra("UserName", Name);
                         startActivity(intent);
 
                     }
@@ -172,6 +179,12 @@ public class Home extends AppCompatActivity {
     {
         Intent intent = new Intent(Home.this,EditProfilePage.class);
         intent.putExtra("UserName",Name);
+        startActivity(intent);
+    }
+
+    public void SignOut(View view){
+        Intent intent = new Intent(getApplicationContext(), UserLogin.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
@@ -197,10 +210,10 @@ class sampleAdapter extends ArrayAdapter<String>
         View v = inflater.inflate(R.layout.single_row,parent,false);
         ImageView img = (ImageView) v.findViewById(R.id.imageView);
         TextView tech = (TextView) v.findViewById(R.id.New_User);
-        TextView techDesc = (TextView) v.findViewById(R.id.textView2);
+        //TextView techDesc = (TextView) v.findViewById(R.id.textView2);
         img.setImageResource(techImages[position]);
         tech.setText(TechTitles[position]);
-        techDesc.setText(TechDesc[position]);
+        //techDesc.setText(TechDesc[position]);
 
         return v;
     }

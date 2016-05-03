@@ -31,16 +31,17 @@ import java.util.HashMap;
 
 public class technicians_list extends AppCompatActivity {
 
-    String CategorySelected,SubCategorySelected,Location;
+    String CategorySelected,SubCategorySelected,Location, Name, Uname;
     TextView Category,SubCategory,ULocation;
     ArrayList<HashMap<String,String>> TechList = new ArrayList<>();
     String[] techniciannames = new String[10];
     String[] experience = new String[10];
     String[] ratings = new String[10];
     String[] basecharges = new String[10];
+    String[] TechUserNames = new String[10];
     ListView list;
     int i=0;
-    String Name;
+    String TechName, TechFirstName, TechLastName, TechFullName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class technicians_list extends AppCompatActivity {
         Intent intent = getIntent();
         CategorySelected = intent.getStringExtra("Category");
         SubCategorySelected = intent.getStringExtra("SubCategory");
+        Uname = intent.getStringExtra("UserName");
         Location = intent.getStringExtra("Location");
         Category = (TextView)findViewById(R.id.CategorytextView);
         SubCategory = (TextView)findViewById(R.id.SubCategorytextView);
@@ -60,11 +62,13 @@ public class technicians_list extends AppCompatActivity {
         //techniciannames=res.getStringArray(R.array.Technician_names);
         //experience=res.getStringArray(R.array.Experience);
         //basecharges=res.getStringArray(R.array.Base_Charges);
-        ratings=res.getStringArray(R.array.Ratings);
+        //ratings=res.getStringArray(R.array.Ratings);
 
 
         Firebase.setAndroidContext(this);
-        Firebase ListRef = new Firebase("https://findyourtechnician.firebaseio.com/Technicians");
+        final Firebase ListRef = new Firebase("https://findyourtechnician.firebaseio.com/Technicians");
+        //ListRef.child(Uname).child("Rating").child("Count").setValue(0);
+        //ListRef.child(Uname).child("Rating").child("Rating").setValue(0);
         Query CategoryQuery = ListRef.orderByChild("Zipcode").equalTo(Location);
         CategoryQuery.addValueEventListener(new ValueEventListener() {
 
@@ -72,22 +76,30 @@ public class technicians_list extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 HashMap<String, String> TechMap = new HashMap<String, String>();
-                String FullName, Experience, Fare;
+                String FullName, Experience, Fare, TechRating;
 
                 for (DataSnapshot category : dataSnapshot.getChildren()) {
                     if (category.child("Expertise").getValue().equals(CategorySelected)) {
-                        FullName = category.child("FirstName").getValue().toString() + " " + category.child("LastName").getValue().toString();
-                        Experience = category.child("Experience").getValue().toString();
-                        Fare = category.child("BaseFare").getValue().toString();
-                        Name = FullName;
-                        TechMap.put("FullName", FullName);
-                        techniciannames[i] = FullName;
-                        TechMap.put("Experience", Experience);
-                        experience[i] = Experience;
-                        TechMap.put("BaseFare", Fare);
-                        basecharges[i] = Fare;
-                        TechList.add(TechMap);
-                        i++;
+                        if (category.child("SubCategory").hasChild(SubCategorySelected)) {
+                            FullName = category.child("FirstName").getValue().toString() + " " + category.child("LastName").getValue().toString();
+                            Experience = category.child("Experience").getValue().toString();
+                            Fare = category.child("SubCategory").child(SubCategorySelected).getValue().toString();
+                            TechRating = category.child("Rating").child("Rating").getValue().toString();
+                            TechName = category.child("UserName").getValue().toString();
+                            Name = FullName;
+                            TechMap.put("FullName", FullName);
+                            techniciannames[i] = FullName;
+                            TechMap.put("Experience", Experience);
+                            experience[i] = Experience;
+                            TechMap.put("BaseFare", Fare);
+                            basecharges[i] = Fare;
+                            TechMap.put("Rating", TechRating);
+                            ratings[i] = TechRating;
+                            TechMap.put("UserName", TechName);
+                            TechUserNames[i] = TechName;
+                            TechList.add(TechMap);
+                            i++;
+                        }
                     }
                 }
 
@@ -107,11 +119,41 @@ public class technicians_list extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(technicians_list.this, TechnicianDetails.class);
-                String Technician = (String) parent.getItemAtPosition(position);
+                final String Technician = (String) parent.getItemAtPosition(position);
+                int Position = (int) parent.getItemIdAtPosition(position);
+                /*ListRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot TechNamesList : dataSnapshot.getChildren()){
+                            TechFirstName = TechNamesList.child("FirstName").getValue().toString();
+                            TechLastName = TechNamesList.child("LastName").getValue().toString();
+                            TechFullName = TechFirstName + " " + TechLastName;
+                            if (TechFullName.contentEquals(Technician)){
+                                TechName = TechNamesList.child("UserName").getValue().toString();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });*/
                 intent.putExtra("Name", Technician);
+                intent.putExtra("TUserName", TechUserNames[Position]);
+                intent.putExtra("UserName",Uname);
+                intent.putExtra("Category", CategorySelected);
+                intent.putExtra("SubCategory", SubCategorySelected);
+                intent.putExtra("Location", Location);
                 startActivity(intent);
             }
         });
+    }
+
+    public void SignOut(View view){
+        Intent intent = new Intent(getApplicationContext(), UserLogin.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 /*
     public void showAlert(View view){
@@ -151,8 +193,8 @@ public class technicians_list extends AppCompatActivity {
 
             tech.setText(TechTitles[position]);
             Exp.setText(TechExperience[position]);
-            Charge.setText(TechExperience[position]);
-            Rating.setText(TechExperience[position]);
+            Charge.setText(TechCharges[position]);
+            Rating.setText(Techratings[position]);
 
             return v;
         }
